@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* === Kids Learning Platform - Warm Playful Theme === */
+    --background: 40 50% 98%;
+    --foreground: 240 20% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 20% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 20% 20%;
+
+    /* Primary - Warm Coral Orange */
+    --primary: 16 85% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Soft Sky Blue */
+    --secondary: 200 80% 92%;
+    --secondary-foreground: 200 60% 30%;
+
+    /* Muted */
+    --muted: 40 30% 94%;
+    --muted-foreground: 240 10% 46%;
+
+    /* Accent - Soft Lavender */
+    --accent: 270 60% 92%;
+    --accent-foreground: 270 40% 30%;
+
+    --destructive: 0 72% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 16 85% 60%;
+
+    --radius: 0.75rem;
+    --radius-kid: 1.25rem;
+    --radius-bubble: 2rem;
+
+    /* === Fun Color Palette === */
+    /* Sunshine Yellow */
+    --sunshine: 45 95% 62%;
+    --sunshine-foreground: 45 80% 20%;
+
+    /* Ocean Blue */
+    --ocean: 200 80% 55%;
+    --ocean-foreground: 0 0% 100%;
+
+    /* Forest Green */
+    --forest: 150 60% 48%;
+    --forest-foreground: 0 0% 100%;
+
+    /* Candy Pink */
+    --candy: 340 75% 65%;
+    --candy-foreground: 0 0% 100%;
+
+    /* Success Green */
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* === Gradients === */
+    --gradient-hero: linear-gradient(135deg, hsl(16 85% 60%), hsl(45 95% 62%));
+    --gradient-ocean: linear-gradient(135deg, hsl(200 80% 55%), hsl(180 60% 50%));
+    --gradient-forest: linear-gradient(135deg, hsl(150 60% 48%), hsl(120 50% 55%));
+    --gradient-candy: linear-gradient(135deg, hsl(340 75% 65%), hsl(270 60% 65%));
+    --gradient-sunshine: linear-gradient(135deg, hsl(45 95% 62%), hsl(30 90% 65%));
+    --gradient-warm-bg: linear-gradient(180deg, hsl(40 50% 98%), hsl(30 40% 95%));
+    --gradient-card-hover: linear-gradient(135deg, hsl(0 0% 100%), hsl(40 40% 97%));
+
+    /* === Shadows === */
+    --shadow-soft: 0 4px 20px -4px hsl(240 20% 20% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(240 20% 20% / 0.1);
+    --shadow-card-hover: 0 12px 40px -8px hsl(16 85% 60% / 0.2);
+    --shadow-button: 0 4px 14px -2px hsl(16 85% 60% / 0.35);
+    --shadow-float: 0 20px 50px -12px hsl(240 20% 20% / 0.15);
+
+    /* === Transitions === */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: var(--gradient-warm-bg);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-ocean {
+    background: var(--gradient-ocean);
+  }
+
+  .gradient-forest {
+    background: var(--gradient-forest);
+  }
+
+  .gradient-candy {
+    background: var(--gradient-candy);
+  }
+
+  .gradient-sunshine {
+    background: var(--gradient-sunshine);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .shadow-button {
+    box-shadow: var(--shadow-button);
+  }
+
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .text-gradient-hero {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-ocean {
+    background: var(--gradient-ocean);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Decorative bubbles background pattern */
+  .bg-bubbles {
+    background-image:
+      radial-gradient(circle at 20% 80%, hsl(16 85% 60% / 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(200 80% 55% / 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, hsl(45 95% 62% / 0.04) 0%, transparent 50%);
+  }
+
+  /* Quiz answer box styling */
+  .answer-box {
+    @apply w-14 h-14 rounded-kid border-2 border-dashed text-center text-xl font-bold
+      flex items-center justify-center;
+    border-color: hsl(var(--primary) / 0.4);
+    background: hsl(var(--primary) / 0.05);
+    transition: var(--transition-bounce);
+  }
+
+  .answer-box:focus {
+    border-color: hsl(var(--primary));
+    border-style: solid;
+    background: hsl(var(--primary) / 0.1);
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.2);
+    outline: none;
+  }
+
+  .answer-box.correct {
+    border-color: hsl(var(--success));
+    border-style: solid;
+    background: hsl(var(--success) / 0.1);
+    color: hsl(var(--success));
+  }
+
+  .answer-box.incorrect {
+    border-color: hsl(var(--destructive));
+    border-style: solid;
+    background: hsl(var(--destructive) / 0.1);
+    color: hsl(var(--destructive));
+  }
+}
